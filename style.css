@@ -1,0 +1,165 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+    color: #696767
+}
+
+.options-container {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    font-weight: 400;
+}
+
+.options-container h4,
+.profile-container h4 {
+    font-weight: 400
+}
+
+.options-container h4 {
+    cursor: pointer;
+}
+
+.profile-container h4 {
+    cursor: pointer;
+    color: black;
+    font-weight: 700;
+    padding: 0.7rem;
+    border-radius: 50px;
+    transition: 0.2s ease;
+}
+
+.profile-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.profile-container img {
+    width: 18px;
+    height: 18px;
+}
+
+.profile-img {
+    padding: 0.5rem 1rem;
+    border-radius: 40px;
+    display: flex;
+    gap: 0.5rem;
+    cursor: pointer;
+    border-radius: none;
+    border: 2px solid whitesmoke;
+    background-color: white;
+}
+
+.profile-img:hover {
+    box-shadow: 1.5px 1.5px 0px 0px rgb(212, 211, 211);
+}
+
+.profile-img img {
+    width: 25px;
+    height: 25px;
+}
+
+.profile-container h4:hover {
+    background-color: rgba(211, 202, 202, 0.863);
+}
+
+.earth-img:hover {
+    box-shadow: 1px 1px 10px 10px rgba(211, 202, 202, 0.863);
+    border-radius: 50px;
+}
+
+/* sub header */
+.sub-header-container {
+    width: 60%;
+    border: 1px solid black;
+    margin: 10px auto 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    gap: 0.1rem;
+    border: none;
+    box-shadow: 1px 1px 12px 1px rgba(211, 202, 202, 0.863);
+    cursor: pointer;
+}
+
+.search-destination {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.3rem;
+    border-radius: 50px;
+    width: 20rem;
+}
+
+.search-destination p {
+    color: #696767;
+}
+
+.check-in {
+    padding: 1.3rem;
+    border-radius: 50px;
+    width: 10rem;
+}
+
+.check-in p {
+    color: #696767
+}
+
+.check-out {
+    padding: 1.3rem;
+    border-radius: 50px;
+    width: 10rem;
+}
+
+.check-out p {
+    color: #696767
+}
+
+.who {
+    display: flex;
+    justify-content: space-between;
+    gap: 2;
+    padding: 1.2rem;
+    border-radius: 50px;
+    width: 15rem;
+}
+
+.who p {
+    color: #696767;
+}
+
+.searchIcon {
+    width: 35px;
+    height: 35px;
+    border-radius: 50px;
+}
+
+/* #vertical-line {
+    border-left: 5px solid #ff0000;
+} */
+
+.search-destination:hover {
+    background-color: rgba(211, 202, 202, 0.863);
+}
+
+.check-in:hover {
+    background-color: rgba(211, 202, 202, 0.863);
+}
+
+.check-out:hover {
+    background-color: rgba(211, 202, 202, 0.863);
+}
+
+.who:hover {
+    background-color: rgba(211, 202, 202, 0.863);
+}
