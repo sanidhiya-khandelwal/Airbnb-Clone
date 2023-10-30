@@ -82,6 +82,7 @@
 }
 
 .earth-img:hover {
+    cursor: pointer;
     box-shadow: 1px 1px 10px 10px rgba(211, 202, 202, 0.863);
     border-radius: 50px;
 }
@@ -277,4 +278,42 @@
 
 .toggle-label {
     font-weight: 500;
+}
+
+/* hero section */
+.hero-section-container {
+    padding: 1.5rem 8.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+
+.hero-section-items {
+    margin-bottom: 2rem;
+}
+
+/* .hero-section-item-img-container {
+   
+} */
+
+.hero-section-item-img-container img {
+    width: 340px;
+    height: 330px;
+    border-radius: 9px;
+    object-fit: cover;
+    /* overflow: visible; */
+}
+
+.hero-section-item-content {
+    padding: 0.5rem 0rem 0rem 0.3rem;
+    margin-bottom: 0.2rem;
+}
+
+.hero-section-item-content h6 {
+    margin-bottom: 1px;
+}
+
+.hero-section-item-content p {
+    margin-bottom: 1px;
 }
