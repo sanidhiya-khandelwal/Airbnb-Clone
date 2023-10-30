@@ -73,7 +73,7 @@ obj.forEach((item, idx) => {
     var HouseDistance = document.getElementById('house-distance');
     var HouseAvailability = document.getElementById('house-availability');
     var HouseCost = document.getElementById('house-cost');
-    var imageContainer = document.getElementById('hero-section-item-img-container');
+
     //By using the Array.isArray() method and the if statement, you can ensure that the forEach method is only called
     //  if item.src is an array, avoiding the error. If item.src is not an array,
     //  you can include alternative logic in the else block to handle the situation appropriately.
@@ -81,8 +81,7 @@ obj.forEach((item, idx) => {
         item.src.forEach(image => {
             // Your logic for handling each image
             item.src.forEach(image => {
-                HouseImage.src = image
-                imageContainer.appendChild(HouseImage)
+                HouseImage.src = image;
             });
         });
     } else {
