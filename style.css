@@ -317,3 +317,13 @@
 .hero-section-item-content p {
     margin-bottom: 1px;
 }
+
+#loading-message {
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.hide {
+    display: none;
+}
