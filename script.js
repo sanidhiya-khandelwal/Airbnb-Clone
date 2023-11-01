@@ -46,7 +46,8 @@ calculateMaxTranslate();
 
 // Hero section code o display only 8 items
 var obj = [
-    { src: ['./assets/Places/Villa_01/Villa_1_01.webp'], EntityName: 'Alibagh,India', distance: '51 km away', availability: '5-10 Nov', cost: 'Rs 68,314 night' },
+    { src: './assets/Places/Villa_02/Villa_02_02.webp', EntityName: 'Kihim,India', distance: '111 km away', availability: '9-14 Nov', cost: 'Rs 28,314 night' },
+    { src: ['./assets/Places/Villa_01/Villa_1_01.webp', './assets/Places/Villa_08/Villa_08_01.webp'], EntityName: 'Alibagh,India', distance: '51 km away', availability: '5-10 Nov', cost: 'Rs 68,314 night' },
     { src: './assets/Places/Villa_02/Villa_02_02.webp', EntityName: 'Kihim,India', distance: '111 km away', availability: '9-14 Nov', cost: 'Rs 28,314 night' },
     { src: './assets/Places/Villa_02/Villa_02_03.webp', EntityName: 'Akshi,India', distance: '18 km away', availability: '18-23 Nov', cost: 'Rs 18,154 night' },
     { src: './assets/Places/Villa_01/Villa_1_04.webp', EntityName: 'Kolgaon,India', distance: '351 km away', availability: '6-11 Nov', cost: 'Rs 8,314 night' },
@@ -60,7 +61,9 @@ var obj = [
 
 ]
 
-var container = document.querySelector('.hero-section-container');
+
+var container = document.querySelector('.hero-section-container')
+var imagesContainer = document.querySelector('.hero-section-item-img-container')
 
 
 obj.forEach((item, idx) => {
@@ -73,17 +76,22 @@ obj.forEach((item, idx) => {
     //By using the Array.isArray() method and the if statement, you can ensure that the forEach method is only called
     //  if item.src is an array, avoiding the error. If item.src is not an array,
     //  you can include alternative logic in the else block to handle the situation appropriately.
+
     if (Array.isArray(item.src)) {
-        item.src.forEach(image => {
-            // Your logic for handling each image
-            item.src.forEach(image => {
-                HouseImage.src = image;
-            });
-        });
+        var newImagesContainer = document.createElement('div'); // Create a new container for images
+        newImagesContainer.classList.add('hero-section-item-img-container'); // Apply the appropriate class
+
+        for (var i = 0; i < item.src.length; i++) {
+            var img = document.createElement('img');
+            img.src = item.src[i];
+            newImagesContainer.appendChild(img); //appending the image to container
+        }
+        container.appendChild(newImagesContainer)
     } else {
         // Handle the case when item.src is not an array
         HouseImage.src = item.src;
     }
+    console.log('array');
 
     HouseName.textContent = item.EntityName;
     HouseDistance.textContent = item.distance;
@@ -129,7 +137,6 @@ function loadMoreItems() {
         setTimeout(function () {
             var newItems = getItems(currentPage, itemsPerPage)
 
-
             newItems.forEach((item, idx) => {
                 var HouseImage = document.getElementById('house-image');
                 var HouseName = document.getElementById('house-name');
@@ -141,16 +148,19 @@ function loadMoreItems() {
                 //  if item.src is an array, avoiding the error. If item.src is not an array,
                 //  you can include alternative logic in the else block to handle the situation appropriately.
                 if (Array.isArray(item.src)) {
-                    item.src.forEach(image => {
-                        // Your logic for handling each image
-                        item.src.forEach(image => {
-                            HouseImage.src = image;
-                        });
-                    });
+                    for (var i = 0; i < item.src.length; i++) {
+                        var img = document.createElement('img');
+                        img.src = item.src[i];
+                        // console.log('hi');
+                        //appending the image to container
+                        imagesContainer.appendChild(img);
+
+                    }
                 } else {
                     // Handle the case when item.src is not an array
                     HouseImage.src = item.src;
                 }
+
 
                 HouseName.textContent = item.EntityName;
                 HouseDistance.textContent = item.distance;
@@ -170,8 +180,8 @@ function loadMoreItems() {
 
 function getTotalPages() {
     var allItems = [
-        { src: ['./assets/Places/Villa_01/Villa_1_01.webp'], EntityName: 'Alibagh,India', distance: '51 km away', availability: '5-10 Nov', cost: 'Rs 68,314 night' },
-        { src: './assets/Places/Villa_02/Villa_02_02.webp', EntityName: 'Kihim,India', distance: '111 km away', availability: '9-14 Nov', cost: 'Rs 28,314 night' },
+        { src: './assets/Places/Villa_01/Villa_1_01.webp', EntityName: 'Alibagh,India', distance: '51 km away', availability: '5-10 Nov', cost: 'Rs 68,314 night' },
+        { src: ['./assets/Places/Villa_01/Villa_1_01.webp', './assets/Places/Villa_08/Villa_08_01.webp'], EntityName: 'Alibagh,India', distance: '51 km away', availability: '5-10 Nov', cost: 'Rs 68,314 night' },
         { src: './assets/Places/Villa_02/Villa_02_03.webp', EntityName: 'Akshi,India', distance: '18 km away', availability: '18-23 Nov', cost: 'Rs 18,154 night' },
         { src: './assets/Places/Villa_01/Villa_1_04.webp', EntityName: 'Kolgaon,India', distance: '351 km away', availability: '6-11 Nov', cost: 'Rs 8,314 night' },
         { src: './assets/Places/Villa_02/Villa_02_01.webp', EntityName: 'Vaishet,India', distance: '91 km away', availability: '8-13 Nov', cost: 'Rs 6,314 night' },
@@ -204,7 +214,7 @@ function getTotalPages() {
         { src: './assets/Places/Villa_02/Villa_02_03.webp', EntityName: 'Nashik,India', distance: '151 km away', availability: '11-16 Nov', cost: 'Rs 48,354 night' },
         { src: './assets/Places/Villa_02/Villa_02_04.webp', EntityName: 'Kharavandi,India', distance: '211 km away', availability: '17-22 Nov', cost: 'Rs 28,764 night' },
 
-        { src: ['./assets/Places/Villa_01/Villa_1_01.webp'], EntityName: 'Alibagh,India', distance: '51 km away', availability: '5-10 Nov', cost: 'Rs 68,314 night' },
+        { src: './assets/Places/Villa_01/Villa_1_01.webp', EntityName: 'Alibagh,India', distance: '51 km away', availability: '5-10 Nov', cost: 'Rs 68,314 night' },
         { src: './assets/Places/Villa_02/Villa_02_02.webp', EntityName: 'Kihim,India', distance: '111 km away', availability: '9-14 Nov', cost: 'Rs 28,314 night' },
         { src: './assets/Places/Villa_02/Villa_02_03.webp', EntityName: 'Akshi,India', distance: '18 km away', availability: '18-23 Nov', cost: 'Rs 18,154 night' },
         { src: './assets/Places/Villa_01/Villa_1_04.webp', EntityName: 'Kolgaon,India', distance: '351 km away', availability: '6-11 Nov', cost: 'Rs 8,314 night' },
@@ -229,7 +239,24 @@ function getTotalPages() {
 function getItems(page, perPage) {
     //simulated data source
     var allItems = [
-        { src: ['./assets/Places/Villa_01/Villa_1_01.webp'], EntityName: 'Alibagh,India', distance: '51 km away', availability: '5-10 Nov', cost: 'Rs 68,314 night' },
+        { src: './assets/Places/Villa_01/Villa_1_01.webp', EntityName: 'Alibagh,India', distance: '51 km away', availability: '5-10 Nov', cost: 'Rs 68,314 night' },
+        { src: ['./assets/Places/Villa_01/Villa_1_01.webp', './assets/Places/Villa_08/Villa_08_01.webp'], EntityName: 'Alibagh,India', distance: '51 km away', availability: '5-10 Nov', cost: 'Rs 68,314 night' },
+        { src: './assets/Places/Villa_02/Villa_02_03.webp', EntityName: 'Akshi,India', distance: '18 km away', availability: '18-23 Nov', cost: 'Rs 18,154 night' },
+        { src: './assets/Places/Villa_01/Villa_1_04.webp', EntityName: 'Kolgaon,India', distance: '351 km away', availability: '6-11 Nov', cost: 'Rs 8,314 night' },
+        { src: './assets/Places/Villa_02/Villa_02_01.webp', EntityName: 'Vaishet,India', distance: '91 km away', availability: '8-13 Nov', cost: 'Rs 6,314 night' },
+        { src: './assets/Places/Villa_02/Villa_02_02.webp', EntityName: 'Parra,India', distance: '41 km away', availability: '2-7 Nov', cost: 'Rs 5,114 night' },
+        { src: './assets/Places/Villa_02/Villa_02_03.webp', EntityName: 'Nashik,India', distance: '151 km away', availability: '11-16 Nov', cost: 'Rs 48,354 night' },
+        { src: './assets/Places/Villa_02/Villa_02_04.webp', EntityName: 'Kharavandi,India', distance: '211 km away', availability: '17-22 Nov', cost: 'Rs 28,764 night' },
+        { src: './assets/Places/Villa_01/Villa_1_01.webp', EntityName: 'Alibagh,India', distance: '51 km away', availability: '5-10 Nov', cost: 'Rs 68,314 night' },
+        { src: './assets/Places/Villa_01/Villa_1_02.webp', EntityName: 'Kihim,India', distance: '111 km away', availability: '9-14 Nov', cost: 'Rs 28,314 night' },
+        { src: './assets/Places/Villa_01/Villa_1_03.webp', EntityName: 'Akshi,India', distance: '18 km away', availability: '18-23 Nov', cost: 'Rs 18,154 night' },
+        { src: './assets/Places/Villa_01/Villa_1_04.webp', EntityName: 'Kolgaon,India', distance: '351 km away', availability: '6-11 Nov', cost: 'Rs 8,314 night' },
+        { src: './assets/Places/Villa_02/Villa_02_01.webp', EntityName: 'Vaishet,India', distance: '91 km away', availability: '8-13 Nov', cost: 'Rs 6,314 night' },
+        { src: './assets/Places/Villa_02/Villa_02_02.webp', EntityName: 'Parra,India', distance: '41 km away', availability: '2-7 Nov', cost: 'Rs 5,114 night' },
+        { src: './assets/Places/Villa_02/Villa_02_03.webp', EntityName: 'Nashik,India', distance: '151 km away', availability: '11-16 Nov', cost: 'Rs 48,354 night' },
+        { src: './assets/Places/Villa_02/Villa_02_04.webp', EntityName: 'Kharavandi,India', distance: '211 km away', availability: '17-22 Nov', cost: 'Rs 28,764 night' },
+
+        // { src: ['./assets/Places/Villa_01/Villa_1_01.webp'], EntityName: 'Alibagh,India', distance: '51 km away', availability: '5-10 Nov', cost: 'Rs 68,314 night' },
         { src: './assets/Places/Villa_02/Villa_02_02.webp', EntityName: 'Kihim,India', distance: '111 km away', availability: '9-14 Nov', cost: 'Rs 28,314 night' },
         { src: './assets/Places/Villa_02/Villa_02_03.webp', EntityName: 'Akshi,India', distance: '18 km away', availability: '18-23 Nov', cost: 'Rs 18,154 night' },
         { src: './assets/Places/Villa_01/Villa_1_04.webp', EntityName: 'Kolgaon,India', distance: '351 km away', availability: '6-11 Nov', cost: 'Rs 8,314 night' },
@@ -246,24 +273,7 @@ function getItems(page, perPage) {
         { src: './assets/Places/Villa_02/Villa_02_03.webp', EntityName: 'Nashik,India', distance: '151 km away', availability: '11-16 Nov', cost: 'Rs 48,354 night' },
         { src: './assets/Places/Villa_02/Villa_02_04.webp', EntityName: 'Kharavandi,India', distance: '211 km away', availability: '17-22 Nov', cost: 'Rs 28,764 night' },
 
-        { src: ['./assets/Places/Villa_01/Villa_1_01.webp'], EntityName: 'Alibagh,India', distance: '51 km away', availability: '5-10 Nov', cost: 'Rs 68,314 night' },
-        { src: './assets/Places/Villa_02/Villa_02_02.webp', EntityName: 'Kihim,India', distance: '111 km away', availability: '9-14 Nov', cost: 'Rs 28,314 night' },
-        { src: './assets/Places/Villa_02/Villa_02_03.webp', EntityName: 'Akshi,India', distance: '18 km away', availability: '18-23 Nov', cost: 'Rs 18,154 night' },
-        { src: './assets/Places/Villa_01/Villa_1_04.webp', EntityName: 'Kolgaon,India', distance: '351 km away', availability: '6-11 Nov', cost: 'Rs 8,314 night' },
-        { src: './assets/Places/Villa_02/Villa_02_01.webp', EntityName: 'Vaishet,India', distance: '91 km away', availability: '8-13 Nov', cost: 'Rs 6,314 night' },
-        { src: './assets/Places/Villa_02/Villa_02_02.webp', EntityName: 'Parra,India', distance: '41 km away', availability: '2-7 Nov', cost: 'Rs 5,114 night' },
-        { src: './assets/Places/Villa_02/Villa_02_03.webp', EntityName: 'Nashik,India', distance: '151 km away', availability: '11-16 Nov', cost: 'Rs 48,354 night' },
-        { src: './assets/Places/Villa_02/Villa_02_04.webp', EntityName: 'Kharavandi,India', distance: '211 km away', availability: '17-22 Nov', cost: 'Rs 28,764 night' },
         { src: './assets/Places/Villa_01/Villa_1_01.webp', EntityName: 'Alibagh,India', distance: '51 km away', availability: '5-10 Nov', cost: 'Rs 68,314 night' },
-        { src: './assets/Places/Villa_01/Villa_1_02.webp', EntityName: 'Kihim,India', distance: '111 km away', availability: '9-14 Nov', cost: 'Rs 28,314 night' },
-        { src: './assets/Places/Villa_01/Villa_1_03.webp', EntityName: 'Akshi,India', distance: '18 km away', availability: '18-23 Nov', cost: 'Rs 18,154 night' },
-        { src: './assets/Places/Villa_01/Villa_1_04.webp', EntityName: 'Kolgaon,India', distance: '351 km away', availability: '6-11 Nov', cost: 'Rs 8,314 night' },
-        { src: './assets/Places/Villa_02/Villa_02_01.webp', EntityName: 'Vaishet,India', distance: '91 km away', availability: '8-13 Nov', cost: 'Rs 6,314 night' },
-        { src: './assets/Places/Villa_02/Villa_02_02.webp', EntityName: 'Parra,India', distance: '41 km away', availability: '2-7 Nov', cost: 'Rs 5,114 night' },
-        { src: './assets/Places/Villa_02/Villa_02_03.webp', EntityName: 'Nashik,India', distance: '151 km away', availability: '11-16 Nov', cost: 'Rs 48,354 night' },
-        { src: './assets/Places/Villa_02/Villa_02_04.webp', EntityName: 'Kharavandi,India', distance: '211 km away', availability: '17-22 Nov', cost: 'Rs 28,764 night' },
-
-        { src: ['./assets/Places/Villa_01/Villa_1_01.webp'], EntityName: 'Alibagh,India', distance: '51 km away', availability: '5-10 Nov', cost: 'Rs 68,314 night' },
         { src: './assets/Places/Villa_02/Villa_02_02.webp', EntityName: 'Kihim,India', distance: '111 km away', availability: '9-14 Nov', cost: 'Rs 28,314 night' },
         { src: './assets/Places/Villa_02/Villa_02_03.webp', EntityName: 'Akshi,India', distance: '18 km away', availability: '18-23 Nov', cost: 'Rs 18,154 night' },
         { src: './assets/Places/Villa_01/Villa_1_04.webp', EntityName: 'Kolgaon,India', distance: '351 km away', availability: '6-11 Nov', cost: 'Rs 8,314 night' },
