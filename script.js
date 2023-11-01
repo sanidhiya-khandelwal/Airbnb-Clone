@@ -46,62 +46,77 @@ calculateMaxTranslate();
 
 // Hero section code o display only 8 items
 var obj = [
-    { src: './assets/Places/Villa_02/Villa_02_02.webp', EntityName: 'Kihim,India', distance: '111 km away', availability: '9-14 Nov', cost: 'Rs 28,314 night' },
-    { src: ['./assets/Places/Villa_01/Villa_1_01.webp', './assets/Places/Villa_08/Villa_08_01.webp'], EntityName: 'Alibagh,India', distance: '51 km away', availability: '5-10 Nov', cost: 'Rs 68,314 night' },
-    { src: './assets/Places/Villa_02/Villa_02_02.webp', EntityName: 'Kihim,India', distance: '111 km away', availability: '9-14 Nov', cost: 'Rs 28,314 night' },
-    { src: './assets/Places/Villa_02/Villa_02_03.webp', EntityName: 'Akshi,India', distance: '18 km away', availability: '18-23 Nov', cost: 'Rs 18,154 night' },
-    { src: './assets/Places/Villa_01/Villa_1_04.webp', EntityName: 'Kolgaon,India', distance: '351 km away', availability: '6-11 Nov', cost: 'Rs 8,314 night' },
-    { src: './assets/Places/Villa_02/Villa_02_01.webp', EntityName: 'Vaishet,India', distance: '91 km away', availability: '8-13 Nov', cost: 'Rs 6,314 night' },
-    { src: './assets/Places/Villa_02/Villa_02_02.webp', EntityName: 'Parra,India', distance: '41 km away', availability: '2-7 Nov', cost: 'Rs 5,114 night' },
-    { src: './assets/Places/Villa_02/Villa_02_03.webp', EntityName: 'Nashik,India', distance: '151 km away', availability: '11-16 Nov', cost: 'Rs 48,354 night' },
-    { src: './assets/Places/Villa_02/Villa_02_04.webp', EntityName: 'Kharavandi,India', distance: '211 km away', availability: '17-22 Nov', cost: 'Rs 28,764 night' },
-    { src: './assets/Places/Villa_01/Villa_1_01.webp', EntityName: 'Alibagh,India', distance: '51 km away', availability: '5-10 Nov', cost: 'Rs 68,314 night' },
-    { src: './assets/Places/Villa_01/Villa_1_02.webp', EntityName: 'Kihim,India', distance: '111 km away', availability: '9-14 Nov', cost: 'Rs 28,314 night' },
-    { src: './assets/Places/Villa_01/Villa_1_03.webp', EntityName: 'Akshi,India', distance: '18 km away', availability: '18-23 Nov', cost: 'Rs 18,154 night' },
-
+    { src: ['./assets/Places/Villa_01/Villa_1_01.webp', './assets/Places/Villa_01/Villa_1_02.webp', './assets/Places/Villa_01/Villa_1_03.webp', './assets/Places/Villa_01/Villa_1_04.webp', './assets/Places/Villa_01/Villa_1_05.webp'], EntityName: 'Kihim,India', distance: '111 km away', availability: '9-14 Nov', cost: 'Rs 28,314 night' },
+    { src: ['./assets/Places/Villa_02/Villa_02_01.webp', './assets/Places/Villa_02/Villa_02_02.webp', './assets/Places/Villa_02/Villa_02_03.webp', './assets/Places/Villa_02/Villa_02_04.webp', './assets/Places/Villa_02/Villa_02_05.webp'], EntityName: 'Alibagh,India', distance: '51 km away', availability: '5-10 Nov', cost: 'Rs 68,314 night' },
+    { src: ['./assets/Places/Villa_03/Villa_03_01.webp', './assets/Places/Villa_03/Villa_03_02.webp', './assets/Places/Villa_03/Villa_03_03.webp', './assets/Places/Villa_03/Villa_03_04.webp', './assets/Places/Villa_03/Villa_03_05.webp'], EntityName: 'Kihim,India', distance: '111 km away', availability: '9-14 Nov', cost: 'Rs 28,314 night' },
+    { src: ['./assets/Places/Villa_04/Villa_04_01.webp', './assets/Places/Villa_04/Villa_04_02.webp', './assets/Places/Villa_04/Villa_04_03.webp', './assets/Places/Villa_04/Villa_04_04.webp', './assets/Places/Villa_04/Villa_04_05.webp'], EntityName: 'Akshi,India', distance: '18 km away', availability: '18-23 Nov', cost: 'Rs 18,154 night' },
+    { src: ['./assets/Places/Villa_05/Villa_05_01.webp', './assets/Places/Villa_05/Villa_05_02.webp', './assets/Places/Villa_05/Villa_05_03.webp', './assets/Places/Villa_05/Villa_05_04.webp', './assets/Places/Villa_05/Villa_05_05.webp'], EntityName: 'Kolgaon,India', distance: '351 km away', availability: '6-11 Nov', cost: 'Rs 8,314 night' },
+    { src: ['./assets/Places/Villa_06/Villa_06_01.webp', './assets/Places/Villa_06/Villa_06_02.webp', './assets/Places/Villa_06/Villa_06_03.webp', './assets/Places/Villa_06/Villa_06_04.webp', './assets/Places/Villa_06/Villa_06_05.webp'], EntityName: 'Vaishet,India', distance: '91 km away', availability: '8-13 Nov', cost: 'Rs 6,314 night' },
+    { src: ['./assets/Places/Villa_07/Villa_07_01.webp', './assets/Places/Villa_07/Villa_07_02.webp', './assets/Places/Villa_07/Villa_07_03.webp', './assets/Places/Villa_07/Villa_07_04.webp', './assets/Places/Villa_07/Villa_07_05.webp'], EntityName: 'Parra,India', distance: '41 km away', availability: '2-7 Nov', cost: 'Rs 5,114 night' },
+    { src: ['./assets/Places/Villa_08/Villa_08_01.webp', './assets/Places/Villa_08/Villa_08_02.webp', './assets/Places/Villa_08/Villa_08_03.webp', './assets/Places/Villa_08/Villa_08_04.webp', './assets/Places/Villa_08/Villa_08_05.webp'], EntityName: 'Nashik,India', distance: '151 km away', availability: '11-16 Nov', cost: 'Rs 48,354 night' },
 ]
 
-
-var container = document.querySelector('.hero-section-container')
-var imagesContainer = document.querySelector('.hero-section-item-img-container')
-
+var container = document.querySelector('.hero-section-container');
 
 obj.forEach((item, idx) => {
-    var HouseImage = document.getElementById('house-image');
-    var HouseName = document.getElementById('house-name');
-    var HouseDistance = document.getElementById('house-distance');
-    var HouseAvailability = document.getElementById('house-availability');
-    var HouseCost = document.getElementById('house-cost');
 
-    //By using the Array.isArray() method and the if statement, you can ensure that the forEach method is only called
-    //  if item.src is an array, avoiding the error. If item.src is not an array,
-    //  you can include alternative logic in the else block to handle the situation appropriately.
+    var leftButton = document.createElement('div');
+    leftButton.classList.add('left-button-on-img');
+    var leftArrowImg = document.createElement('img');
+    leftArrowImg.src = './assets/icons/left-arrow.png';
+    leftButton.appendChild(leftArrowImg);
 
+
+
+    var newImagesContainer = document.createElement('div');
+    newImagesContainer.classList.add('hero-section-item-img-container');
+
+    var itemContainer = document.createElement('div');
+    itemContainer.classList.add('hero-section-items');
+
+    itemContainer.appendChild(leftButton);
+
+    //if src is an array then only if condition will run
     if (Array.isArray(item.src)) {
-        var newImagesContainer = document.createElement('div'); // Create a new container for images
-        newImagesContainer.classList.add('hero-section-item-img-container'); // Apply the appropriate class
-
         for (var i = 0; i < item.src.length; i++) {
             var img = document.createElement('img');
             img.src = item.src[i];
-            newImagesContainer.appendChild(img); //appending the image to container
+            newImagesContainer.appendChild(img);
         }
-        container.appendChild(newImagesContainer)
     } else {
-        // Handle the case when item.src is not an array
-        HouseImage.src = item.src;
+        var img = document.createElement('img');
+        img.src = item.src;
+        newImagesContainer.appendChild(img);
     }
-    console.log('array');
 
-    HouseName.textContent = item.EntityName;
-    HouseDistance.textContent = item.distance;
-    HouseAvailability.textContent = item.availability;
-    HouseCost.textContent = item.cost;
 
-    var clone = document.querySelector('.hero-section-items').cloneNode(true); //hero-section-items will be created
-    container.appendChild(clone);//append inside hero-section-container
-})
+    itemContainer.appendChild(newImagesContainer);
 
+    var houseName = document.createElement('h6');
+    houseName.textContent = item.EntityName;
+    itemContainer.appendChild(houseName);
+
+    var houseDistance = document.createElement('p');
+    houseDistance.textContent = item.distance;
+    itemContainer.appendChild(houseDistance);
+
+    var houseAvailability = document.createElement('p');
+    houseAvailability.textContent = item.availability;
+    itemContainer.appendChild(houseAvailability);
+
+    var houseCost = document.createElement('h6');
+    houseCost.textContent = item.cost;
+    itemContainer.appendChild(houseCost);
+
+    var rightButton = document.createElement('div');
+    rightButton.classList.add('right-button-on-img');
+    var rightArrowImg = document.createElement('img');
+    rightArrowImg.src = './assets/icons/arrow-right.png';
+    rightButton.appendChild(rightArrowImg);
+    itemContainer.appendChild(rightButton);
+
+    container.appendChild(itemContainer);
+});
 
 
 //----------------------------------------
@@ -137,38 +152,47 @@ function loadMoreItems() {
         setTimeout(function () {
             var newItems = getItems(currentPage, itemsPerPage)
 
-            newItems.forEach((item, idx) => {
-                var HouseImage = document.getElementById('house-image');
-                var HouseName = document.getElementById('house-name');
-                var HouseDistance = document.getElementById('house-distance');
-                var HouseAvailability = document.getElementById('house-availability');
-                var HouseCost = document.getElementById('house-cost');
 
-                //By using the Array.isArray() method and the if statement, you can ensure that the forEach method is only called
-                //  if item.src is an array, avoiding the error. If item.src is not an array,
-                //  you can include alternative logic in the else block to handle the situation appropriately.
+
+            var container = document.querySelector('.hero-section-container');
+
+            newItems.forEach((item, idx) => {
+                var newImagesContainer = document.createElement('div');
+                newImagesContainer.classList.add('hero-section-item-img-container');
+
                 if (Array.isArray(item.src)) {
                     for (var i = 0; i < item.src.length; i++) {
                         var img = document.createElement('img');
                         img.src = item.src[i];
-                        // console.log('hi');
-                        //appending the image to container
-                        imagesContainer.appendChild(img);
-
+                        newImagesContainer.appendChild(img);
                     }
                 } else {
-                    // Handle the case when item.src is not an array
-                    HouseImage.src = item.src;
+                    var img = document.createElement('img');
+                    img.src = item.src;
+                    newImagesContainer.appendChild(img);
                 }
 
+                var itemContainer = document.createElement('div');
+                itemContainer.classList.add('hero-section-items');
+                itemContainer.appendChild(newImagesContainer);
 
-                HouseName.textContent = item.EntityName;
-                HouseDistance.textContent = item.distance;
-                HouseAvailability.textContent = item.availability;
-                HouseCost.textContent = item.cost;
+                var houseName = document.createElement('h6');
+                houseName.textContent = item.EntityName;
+                itemContainer.appendChild(houseName);
 
-                var clone = document.querySelector('.hero-section-items').cloneNode(true); //hero-section-items will be created
-                container.appendChild(clone);//append inside hero-section-container
+                var houseDistance = document.createElement('p');
+                houseDistance.textContent = item.distance;
+                itemContainer.appendChild(houseDistance);
+
+                var houseAvailability = document.createElement('p');
+                houseAvailability.textContent = item.availability;
+                itemContainer.appendChild(houseAvailability);
+
+                var houseCost = document.createElement('h6');
+                houseCost.textContent = item.cost;
+                itemContainer.appendChild(houseCost);
+
+                container.appendChild(itemContainer);
             })
 
             currentPage++;
