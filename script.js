@@ -1,4 +1,5 @@
 var icons = document.querySelectorAll(".icon-container")
+// console.log(icons);
 var currentTranslate = 0;
 var maxTranslate = 0;
 
@@ -44,7 +45,7 @@ function scrollToLeft() {
 
 calculateMaxTranslate();
 
-// Hero section code o display only 8 items
+// Hero section code  display only 8 items
 var obj = [
     { src: ['./assets/Places/Villa_01/Villa_1_01.webp', './assets/Places/Villa_01/Villa_1_02.webp', './assets/Places/Villa_01/Villa_1_03.webp', './assets/Places/Villa_01/Villa_1_04.webp', './assets/Places/Villa_01/Villa_1_05.webp'], EntityName: 'Kihim,India', distance: '111 km away', availability: '9-14 Nov', cost: 'Rs 28,314 night' },
     { src: ['./assets/Places/Villa_02/Villa_02_01.webp', './assets/Places/Villa_02/Villa_02_02.webp', './assets/Places/Villa_02/Villa_02_03.webp', './assets/Places/Villa_02/Villa_02_04.webp', './assets/Places/Villa_02/Villa_02_05.webp'], EntityName: 'Alibagh,India', distance: '51 km away', availability: '5-10 Nov', cost: 'Rs 68,314 night' },
@@ -60,37 +61,66 @@ var container = document.querySelector('.hero-section-container');
 
 obj.forEach((item, idx) => {
 
-    var leftButton = document.createElement('div');
-    leftButton.classList.add('left-button-on-img');
-    var leftArrowImg = document.createElement('img');
-    leftArrowImg.src = './assets/icons/left-arrow.png';
-    leftButton.appendChild(leftArrowImg);
-
-
-
     var newImagesContainer = document.createElement('div');
-    newImagesContainer.classList.add('hero-section-item-img-container');
+    newImagesContainer.classList.add('hero-section-item-img-container', `img-container-${idx}`);
 
     var itemContainer = document.createElement('div');
     itemContainer.classList.add('hero-section-items');
 
-    itemContainer.appendChild(leftButton);
+    var imgPosition = 0;//image initial position
 
-    //if src is an array then only if condition will run
+    //if src is an array, create an image slider
     if (Array.isArray(item.src)) {
-        for (var i = 0; i < item.src.length; i++) {
+        item.src.forEach((src, i) => {
             var img = document.createElement('img');
-            img.src = item.src[i];
+            img.src = src;
+            img.classList.add('slider-image')
             newImagesContainer.appendChild(img);
-        }
-    } else {
+        });
+
+        //move image horizontally to the left on button click
+        // function moveLeft() {
+        //     if (imgPosition < 0) {
+        //         imgPosition += 320;
+        //         newImagesContainer.style.transform = `translateX(${imgPosition}px)`;
+        //     }
+        // }
+
+        //move image horizontally to the right on button click
+        // function moveRight() {
+        //     var maxPosition = -320 * (item.src.length - 1);
+        //     if (imgPosition > maxPosition) {
+        //         imgPosition -= 320;
+        //         newImagesContainer.style.transform = `translateX(${imgPosition}px)`;
+        //     }
+        // }
+
+
+
+
+        var leftButton = document.createElement('div');
+        leftButton.classList.add('left-button-on-img');
+        var leftArrowImg = document.createElement('img');
+        leftArrowImg.src = './assets/icons/left-arrow.png';
+        leftButton.appendChild(leftArrowImg);
+        leftButton.onclick = moveLeft;
+
+        var rightButton = document.createElement('div');
+        rightButton.classList.add('right-button-on-img');
+        var rightArrowImg = document.createElement('img');
+        rightArrowImg.src = './assets/icons/arrow-right.png';
+        rightButton.appendChild(rightArrowImg);
+        rightButton.onclick = moveRight;
+
+        itemContainer.appendChild(leftButton);
+        itemContainer.appendChild(newImagesContainer);
+        itemContainer.appendChild(rightButton);
+    }
+    else {
         var img = document.createElement('img');
         img.src = item.src;
         newImagesContainer.appendChild(img);
     }
-
-
-    itemContainer.appendChild(newImagesContainer);
 
     var houseName = document.createElement('h6');
     houseName.textContent = item.EntityName;
@@ -108,15 +138,10 @@ obj.forEach((item, idx) => {
     houseCost.textContent = item.cost;
     itemContainer.appendChild(houseCost);
 
-    var rightButton = document.createElement('div');
-    rightButton.classList.add('right-button-on-img');
-    var rightArrowImg = document.createElement('img');
-    rightArrowImg.src = './assets/icons/arrow-right.png';
-    rightButton.appendChild(rightArrowImg);
-    itemContainer.appendChild(rightButton);
-
     container.appendChild(itemContainer);
 });
+
+
 
 
 //----------------------------------------
