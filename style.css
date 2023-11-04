@@ -4,6 +4,13 @@
     box-sizing: border-box;
 }
 
+.main-header {
+    position: fixed;
+    background-color: white;
+    z-index: 10;
+    width: 100%;
+}
+
 .header-container {
     display: flex;
     justify-content: space-around;
@@ -247,11 +254,16 @@
 }
 
 /* hero section */
+.empty-hero-section {
+    height: 340px;
+}
+
 .hero-section-container {
     padding: 1.5rem 8.5rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    overflow: hidden;
 
 }
 
