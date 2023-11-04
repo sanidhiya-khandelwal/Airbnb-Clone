@@ -371,3 +371,38 @@
     transition-duration: 0.3s;
     transform: scale(1.1);
 }
+
+.map-container {
+    position: fixed;
+    width: 10%;
+    height: 60px;
+    margin: auto;
+    border-radius: 12px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    z-index: 100;
+    bottom: 50px;
+    left: 45%;
+    cursor: pointer;
+    transition-duration: 0.2s;
+}
+
+.map-container:hover {
+    transition-duration: 0.2s;
+    transform: scale(1.03);
+}
+
+.map-container h5 {
+    color: white;
+}
+
+.map-container img {
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 9px;
+    padding: 0.1rem;
+}
