@@ -290,9 +290,9 @@
 }
 
 .hero-section-items {
-    border: 1px solid black;
     position: relative;
     margin-bottom: 2rem;
+    cursor: pointer;
 }
 
 
@@ -324,6 +324,7 @@
 }
 
 .hero-section-items {
+    position: relative;
     padding: 0.5rem 0rem 0rem 0.3rem;
     margin-bottom: 1.5rem;
 }
@@ -351,30 +352,44 @@
 /* card image arrows */
 .left-button-on-img {
     position: absolute;
-    top: 180px;
+    top: 162px;
     left: 15px;
+    z-index: 1;
+
 }
 
 .left-button-on-img img {
-    width: 35px;
-    height: 35px;
+    width: 45px;
+    height: 45px;
     cursor: pointer;
+    border-radius: 12px;
+    background-color: white;
+    transition-duration: 0.3s;
+    padding: 4px;
 }
 
+
 .right-button-on-img {
+    display: none;
     position: absolute;
-    top: 180px;
+    top: 162px;
     right: 15px;
+    z-index: 1;
+    border-radius: 12px;
 }
 
 .right-button-on-img img {
-    width: 35px;
-    height: 35px;
+    width: 45px;
+    height: 45px;
     cursor: pointer;
+    background-color: white;
+    border-radius: 12px;
+    transition-duration: 0.3s;
+    padding: 4px;
 }
 
-.slider-image {
-    flex-shrink: 0;
-    width: 320px;
-    transition: transform 0.5s ease;
+.left-button-on-img img:hover,
+.right-button-on-img img:hover {
+    transition-duration: 0.3s;
+    transform: scale(1.1);
 }
