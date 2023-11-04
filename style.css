@@ -90,86 +90,52 @@
 /* sub header */
 .sub-header-container {
     width: 60%;
-    margin: 10px auto 0px;
+    height: 80px;
+    margin: 15px auto 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-radius: 50px;
-    gap: 0.1rem;
     border: none;
     box-shadow: 1px 1px 12px 1px rgba(211, 202, 202, 0.863);
     cursor: pointer;
 }
 
 .sub-header-container p {
+    margin-top: -5px;
     font-size: 1.3rem;
-}
-
-.search-destination {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 1rem;
-    border-radius: 50px;
-    width: 20rem;
-}
-
-.search-destination p {
     color: #696767;
 }
 
-.check-in {
-    padding: 1rem;
+.sub-header-container h6 {
+    margin-top: 16px;
+}
+
+
+.search-destination,
+.check-in,
+.check-out,
+.who {
+    width: 25%;
+    padding-left: 1.5rem;
     border-radius: 50px;
-    width: 10rem;
-}
-
-.check-in p {
-    color: #696767
-}
-
-.check-out {
-    padding: 1rem;
-    border-radius: 50px;
-    width: 10rem;
-}
-
-.check-out p {
-    color: #696767
 }
 
 .who {
     display: flex;
     justify-content: space-between;
-    gap: 2;
-    padding: 1rem;
-    border-radius: 50px;
-    width: 15rem;
-}
-
-.who p {
-    color: #696767;
+    padding-right: 1.5rem;
 }
 
 .searchIcon {
     width: 35px;
     height: 35px;
-    border-radius: 50px;
+    margin-top: 22px;
 }
 
-
-.search-destination:hover {
-    background-color: rgba(211, 202, 202, 0.863);
-}
-
-.check-in:hover {
-    background-color: rgba(211, 202, 202, 0.863);
-}
-
-.check-out:hover {
-    background-color: rgba(211, 202, 202, 0.863);
-}
-
+.search-destination:hover,
+.check-in:hover,
+.check-out:hover,
 .who:hover {
     background-color: rgba(211, 202, 202, 0.863);
 }
