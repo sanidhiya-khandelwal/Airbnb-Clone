@@ -153,13 +153,14 @@
 .filter-icons {
     display: flex;
     align-items: center;
-    width: 65rem
+    width: 65rem;
 }
 
 
 .left-button img {
     width: 35px;
     height: 35px;
+    display: none;
 }
 
 .left-button img:hover {
@@ -195,6 +196,11 @@
 }
 
 .icon-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
     transition: transform 0.7s ease-in-out;
 }
 
@@ -203,8 +209,8 @@
 }
 
 .icon-container img {
-    height: 40px;
-    width: 40px;
+    height: 35px;
+    width: 35px;
 }
 
 .right-button img {
@@ -333,7 +339,6 @@
     top: 162px;
     left: 15px;
     z-index: 1;
-
 }
 
 .left-button-on-img img {

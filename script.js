@@ -1,6 +1,8 @@
 var icons = document.querySelectorAll(".icon-container")
 var currentTranslate = 0;
 var maxTranslate = 0;
+var FilterLeftArrowButton = document.querySelector('.left-button-filter')
+var FilterRightArrowButton = document.querySelector('.right-button-filter')
 
 function calculateMaxTranslate() {
     var rightmostPosition = 0;
@@ -26,26 +28,34 @@ function scrollToRight() {
         icon.style.transitionTimingFunction = "ease-in-out"
         icon.style.transform = "translate(" + currentTranslate + "px)"
     })
+    FilterLeftArrowButton.style.display = 'block';
+
+    if (currentTranslate == maxTranslate) {
+        FilterRightArrowButton.style.display = 'none';
+    }
 
 }
 
 function scrollToLeft() {
+    FilterRightArrowButton.style.display = 'block';
     currentTranslate += 500;
 
     // Limit the translation to 0 (start position)
     currentTranslate = Math.min(currentTranslate, 0);
-
     icons.forEach(function (icon) {
         icon.style.transitionTimingFunction = "ease-in-out"
         icon.style.transform = "translate(" + currentTranslate + "px)"
     })
+
+    if (currentTranslate == 0) {
+        FilterLeftArrowButton.style.display = 'none';
+    }
 
 }
 
 calculateMaxTranslate();
 
 //repeating code
-
 function displayData(item, idx) {
 
     var newImagesContainer = document.createElement('div');
