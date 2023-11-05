@@ -333,6 +333,25 @@
     display: none;
 }
 
+/* heart button on img */
+.heart-button-img {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    transition-duration: 0.3s;
+    /* color: white; */
+    /* background-color: white; */
+}
+
+.heart-button-img:hover {
+    transform: scale(1.1);
+    transition-duration: 0.3s;
+
+}
+
+
 /* card image arrows */
 .left-button-on-img {
     position: absolute;

@@ -75,6 +75,10 @@ function displayData(item, idx) {
         img.src = images[currentImageIndex];
         newImagesContainer.appendChild(img);
     }
+    var heartButton = document.createElement('img');
+    heartButton.classList.add('heart-button-img');
+    heartButton.src = './assets/icons/heart.png';
+
 
     var rightButton = document.createElement('div');
     rightButton.classList.add('right-button-on-img');
@@ -135,6 +139,7 @@ function displayData(item, idx) {
     itemContainer.appendChild(newImagesContainer);
     itemContainer.appendChild(leftButton);
     itemContainer.appendChild(rightButton);
+    itemContainer.appendChild(heartButton)
 
     var houseName = document.createElement('h6');
     houseName.textContent = item.EntityName;
